@@ -1,0 +1,62 @@
+;; RefTeX parse info file
+;; File: /Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex
+;; User: anthony (anthony)
+
+(set reftex-docstruct-symbol '(
+
+
+(xr nil "\\\\\\\\\\\\")
+
+(index-tags)
+
+(is-multi nil)
+
+(bibview-cache)
+
+(master-dir . "/Users/anthony/Dropbox/Linear_Smoothers/")
+
+(label-numbers)
+
+(bof "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex")
+
+(toc "toc" "    1 Moving averages" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil 2 "1" "\\section{Moving averages}" 709)
+
+("section1" "s" "Suppose that we seek an interpolating function $y(x)$ for the five data points $(x_1,y_2), (x_2, y_2" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("figtwo" "f" "NO MATCH FOR CONTEXT REGEXP" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("try" "e" "y(x)=\\frac{ k(\\frac{x-x_1}{h})y_1 + k(\\frac{x-x_2}{h})y_2 + k(\\frac{x-x_3}{h})y_3 + k(\\frac{x-x_4}{h" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("gg" "e" "k(x)= \\frac{1}{\\sqrt{2\\pi}}e^{-x^2/2}. " "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("figgg3" "f" "NO MATCH FOR CONTEXT REGEXP" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+(toc "toc" "    2 Locally linear regression" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil 2 "2" "\\section{Locally linear regression}" 4946)
+
+("linear" "s" "We assume the reader is familiar with simple linear regression, i.e., with the construction of a str" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("equ" "e" "\\hat E = \\frac{1}{N}\\sum_{i=1}^N (y(x_i) - y_i)^2. " "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("equ" "e" "\\hat E(x) = \\frac{1}{N}\\sum_{i=1}^N k\\left(\\frac{x_i - x}{h}\\right)(y(x_i) - y_i)^2. " "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("form" "e" "y(x)=\\sum_{i=1}^N l_i(x)y_i,\\quad \\text{where}\\enspace l_i(x)=\\frac{g_i(x)}{\\sum_{j=1}^N g_j(x)}" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("form2" "e" "\\text{and}\\enspace g_j(x)=\\left(\\, \\sum_{i=1}^N (x_i-x_j)(x_i-x)K\\left(\\frac{x_i-x}{h}\\right)\\,\\righ" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+(toc "toc" "    3 Comparison of locally constant and " "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil 2 "3" "\\section{Comparison of locally constant and \\\\locally linear regression}" 8450)
+
+(toc "toc" "    4 Cross-validation and bandwidth selection" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil 2 "4" "\\section{Cross-validation and bandwidth selection}" 11623)
+
+("cross" "s" "To avoid overfitting in local regression one choses a bandwidth minimizing a cross-validation error." "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+("it" "e" "E_\\text{CV}=\\frac{1}{N}\\sum_{i=1}^N\\left(\\frac{y(x_i)-y_i}{1-l_i(x_i)}\\right)^2 " "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+(appendix . t)
+
+(toc "toc" "    A Derivation of the formula for locally linear regression" "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil 2 "A" "\\section{Derivation of the formula for locally linear regression}" 14568)
+
+("eq:4" "e" " " "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex" nil)
+
+(eof "/Users/anthony/Dropbox/Linear_Smoothers/smoothers.tex")
+))
+

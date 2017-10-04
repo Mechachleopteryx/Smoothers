@@ -1,0 +1,79 @@
+# Linear smoothers code. Number of outputs is fixed to be 1.
+# "gcv" means "generalized cross validation"
+
+cdef extern from "smoothers.c":
+   double Cgcv_error(double[][2], int, double, int)
+   double Cprediction(double[][2], int, double, int, double)
+   double g(int, double[][2], int, double, double)
+   double l(int, double[][2], int, double, int, double)
+   double Ceffective_degrees(double[][2], int, double, int)
+
+def gcv_error(patterns, h, order):
+   '''
+   This function computes the generalized cross validation error for a
+   linear smoother built from the patterns passed, using a bandwidth
+   of h. The type of smoothing is understood to be "locally constant"
+[   if order = 0 and locally linear if order = 1.
+   '''
+   cdef double Cpatterns[1000][2]
+   cdef double Ch=h
+   cdef int Cnum_patterns = len(patterns)
+   cdef int Corder = order
+   for  i in range(len(patterns)):
+      for j in range(2):
+         Cpatterns[i][j] = patterns[i][j]
+   return Cgcv_error(Cpatterns, Cnum_patterns, Ch, Corder)
+
+def prediction(patterns, h, order, x):
+   '''
+   This function returns the value at x of a one-dimensional linear
+   smoother, built from the patterns passed. h is the bandwidth and
+   order the type of smoothing performed: 0 for locally constant; 1
+   for locally linear
+   '''
+   cdef double Cpatterns[1000][2]
+   cdef int Cnum_patterns = len(patterns)
+   cdef double Ch =h
+   cdef int Corder = order
+   cdef double Cx =x
+   for  i in range(len(patterns)):
+      for j in range(2):
+         Cpatterns[i][j] = patterns[i][j]
+   return Cprediction(Cpatterns, Cnum_patterns, Ch, Corder, Cx)
+
+def test(j, patterns, h, x):
+   cdef int Cj = j
+   cdef double Cpatterns[1000][2]
+   cdef int Cnum_patterns = len(patterns)
+   cdef double Ch = h
+   cdef double Cx =x
+   for  i in range(len(patterns)):
+      for j in range(2):
+         Cpatterns[i][j] = patterns[i][j]
+   return g(Cj, Cpatterns, Cnum_patterns, Ch, Cx)
+
+def order_one_lfunction(j, patterns, h, x):
+   cdef int Cj = j
+   cdef double Cpatterns[1000][2]
+   cdef int Cnum_patterns = len(patterns)
+   cdef double Ch = h
+   cdef double Cx =x
+   for  i in range(len(patterns)):
+      for j in range(2):
+         Cpatterns[i][j] = patterns[i][j]
+   return l(Cj, Cpatterns, Cnum_patterns, Ch, 1, Cx)
+
+def effective_degrees(patterns, h, order):
+   '''
+   This function returns the effective number of degrees of freedom
+   for a linear smoother built from the patterns passed. <h> is the
+   bandwidth and <order> the type of smoothing performed; see above.
+   '''
+   cdef double Cpatterns[1000][2]
+   cdef double Ch=h
+   cdef int Cnum_patterns = len(patterns)
+   cdef int Corder = order
+   for  i in range(len(patterns)):
+      for j in range(2):
+         Cpatterns[i][j] = patterns[i][j]
+   return Ceffective_degrees(Cpatterns, Cnum_patterns, Ch, Corder)

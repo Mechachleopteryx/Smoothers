@@ -1,0 +1,36 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage{hyperref}
+\usepackage{sagetex}
+\setlength{\sagetexindent}{10ex}
+
+\begin{document}
+\title{Local regression for Icecream data} 
+\maketitle
+
+%\section*{Local regression for Indometh data}
+
+\begin{sagesilent}
+load smoothers.spyx
+load smoothers.sage
+patterns=ssv_to_list_of_lists("icecream.ssv")
+g1=show_smoother(-0.057, 0, xmin = 10, xmax = 36)
+g2=show_smoother(0.17, xmin = 10, xmax = 36)
+\end{sagesilent}
+
+\begin{figure}[h]
+  \centering 
+  \sageplot[scale=0.4]{g1, g2}
+  \caption{Locally constant nonparametric regression applied to
+    icecream data.}
+\end{figure}
+
+\begin{figure}[h]
+  \centering 
+  \sageplot[scale=0.4]{g2}
+  \caption{Locally linear nonparametric regression applied to icecream
+    data.}
+\end{figure}
+
+
+
+\end{document}

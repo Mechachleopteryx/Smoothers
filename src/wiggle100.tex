@@ -1,0 +1,72 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[font={footnotesize}]{caption}
+%\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb,amsxtra,amsthm,amscd}
+\usepackage{sagetex}
+\setlength{\sagetexindent}{10ex}
+\newcommand\df{\em}
+
+\begin{document}
+\bibliographystyle{plain} 
+%\author{\small \copyright2012 Math Expertise}
+\title{Local regression of the $x\sin\left(\frac{1}{0.1+x^2}\right)$ function}
+
+\maketitle
+%{\footnotesize\tableofcontents}
+
+\begin{figure}
+  \begin{sagesilent}
+     p=load("wiggle100_order0")
+  \end{sagesilent}
+  \centering 
+  \sageplot[scale=0.4]{p}
+  \caption{Locally constant regression as applied to $100$ data points
+    $y_i= x_i\sin\left(\frac{1}{0.1+x_i^2}\right) + 0.05\epsilon_i$
+    ($i=1,2,\ldots,100$), the $x_i$ and $\epsilon_i$ randomly
+    generated according to the standard normal distribution. A
+    bandwidth of $h=0.02489$ was chosen by generalized
+    cross-validation.}
+\end{figure}
+
+
+\begin{figure}
+  \begin{sagesilent}
+     p=load("wiggle100_order0_compare")
+  \end{sagesilent}
+  \centering 
+  \sageplot[scale=0.4]{p}
+  \caption{Locally constant regression (the blue curve) for the data of
+    the preceding figure, compared with the target function
+    $y=x\sin\left(\frac{1}{0.1+x^2}\right)$ (red curve).}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+  \begin{sagesilent}
+     p=load("wiggle100_order1")
+  \end{sagesilent}
+  \centering 
+  \sageplot[scale=0.4]{p}
+  \caption{Locally linear regression as applied to $100$ data points
+    $y_i= x_i\sin\left(\frac{1}{0.1+x_i^2}\right) + 0.05\epsilon_i$
+    ($i=1,2,\ldots,100$), the $x_i$ and $\epsilon_i$ randomly
+    generated according to the standard normal distribution. A
+    bandwidth of $h=0.02903$ was chosen by generalized
+    cross-validation.}
+\end{figure}
+
+
+\begin{figure}
+  \begin{sagesilent}
+     p=load("wiggle100_order1_compare")
+  \end{sagesilent}
+  \centering 
+  \sageplot[scale=0.4]{p}
+  \caption{Locally linear regression (the blue curve) for the data of
+    the preceding figure, compared with the target function
+    $y=x\sin\left(\frac{1}{0.1+x^2}\right)$ (red curve).}
+\end{figure}
+
+\end{document}

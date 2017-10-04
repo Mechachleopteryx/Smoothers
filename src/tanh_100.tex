@@ -1,0 +1,45 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage[font={footnotesize}]{caption}
+%\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{amssymb,amsxtra,amsthm,amscd}
+\usepackage{sagetex}
+\setlength{\sagetexindent}{10ex}
+\newcommand\df{\em}
+
+\begin{document}
+\bibliographystyle{plain} 
+%\author{\small \copyright2012 Math Expertise}
+\title{Local regression of the $\tanh$ function}
+
+\maketitle
+%{\footnotesize\tableofcontents}
+
+\begin{figure}
+  \begin{sagesilent}
+     p=load("tanh100_order0")
+  \end{sagesilent}
+  \centering 
+  \sageplot[scale=0.4]{p}
+  \caption{Locally constant regression (the blue curve) as applied to $100$ data points
+    $y_i=\tanh(x_i) + 0.05\epsilon_i$ ($i=1,2,\ldots,100$), the $x_i$ and
+    $\epsilon_i$ randomly generated according to the standard normal
+    distribution. A bandwidth of $h=0.196$ was chosen by generalized
+    cross-validation. The $\tanh$ function is shown in red.}
+\end{figure}
+
+\begin{figure}
+  \begin{sagesilent}
+     p=load("tanh100_order1")
+  \end{sagesilent}
+  \centering 
+  \sageplot[scale=0.4]{p}
+  \caption{Locally linear regression (the blue curve) as applied to
+    the same data appearing in the preceeding figure. A bandwidth of
+    $h=0.0803$ was chosen by generalized cross-validation. The $\tanh$
+    function is shown in red.}
+\end{figure}
+
+
+
+\end{document}

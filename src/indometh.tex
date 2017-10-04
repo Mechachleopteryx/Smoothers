@@ -1,0 +1,38 @@
+\documentclass[11pt, reqno]{amsart}
+\usepackage{hyperref}
+\usepackage{sagetex}
+\setlength{\sagetexindent}{10ex}
+
+\begin{document}
+\bibliographystyle{plain}
+
+\title{Local regression for Indometh data} 
+\maketitle
+
+%\section*{Local regression for Indometh data}
+
+\begin{sagesilent}
+load smoothers.spyx
+load smoothers.sage
+patterns=ssv_to_list_of_lists("Indometh.ssv")
+g1=show_smoother(-0.975,0, xmin = 0, xmax = 10)
+g2=show_smoother(-0.81, xmin = 0, xmax = 10)
+\end{sagesilent}
+
+\begin{figure}[h]
+  \centering 
+  \sageplot[scale=0.4]{g1}
+  \caption{Locally constant nonparametric regression applied to
+    Indometh data.}
+\end{figure}
+
+\begin{figure}[h]
+  \centering 
+  \sageplot[scale=0.4]{g2}
+  \caption{Locally linear nonparametric regression applied to Indometh
+    data.}
+\end{figure}
+
+\bibliography{dynamics2}
+
+\end{document}

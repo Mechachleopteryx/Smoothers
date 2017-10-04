@@ -1,0 +1,22 @@
+# Linear smoothers code. Number of outputs is fixed to be 1.
+
+cdef extern from "smoothers.c":
+   double gcv_error(double[][11], int, int, double)
+
+def generalized_cross_validation_error(p, l):
+   cdef double patts[250][11]
+   cdef double lam
+   cdef int np, ni
+   lam = l
+   num_patterns = len(p)
+   num_inputs = len(p[0]) -1
+   np = num_patterns
+   ni = num_inputs
+   for  i in range(num_patterns):
+      for j in range(num_inputs + 1):
+         patts[i][j] = p[i][j]
+   ret = gcv_error(patts, ni, np, lam)
+   return ret
+
+
+   

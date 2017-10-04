@@ -1,0 +1,7 @@
+\contentsline {section}{\tocsection {}{1}{Moving averages}}{1}
+\contentsline {section}{\tocsection {}{2}{Locally linear regression}}{3}
+\contentsline {section}{\tocsection {}{3}{Comparison of locally constant and \\locally linear regression}}{5}
+\contentsline {section}{\tocsection {}{4}{Cross-validation and bandwidth selection}}{6}
+\contentsline {section}{\tocsection {}{5}{The tip of the iceberg}}{8}
+\contentsline {section}{\tocsection {Appendix}{A}{Derivation of the formula for\\ locally linear regression}}{9}
+\contentsline {section}{\tocsection {Appendix}{}{References}}{10}
